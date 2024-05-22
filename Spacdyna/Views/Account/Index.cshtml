@@ -1,0 +1,9 @@
+﻿@using Spacdyna.Models
+@model List<AppUser>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.UserName</li>
+    }
+</ul>

@@ -1,0 +1,54 @@
+﻿@using Spacdyna.Models
+@using Spacdyna.ViewModel
+
+@model List<Offers>
+<h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
+<a  asp-action="Creat" class="btn btn-success m-1">Create</a>
+<div class="table-responsive">
+    <table class="table text-nowrap mb-0 align-middle">
+        <thead class="text-dark fs-4">
+            <tr>
+                <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Id</h6>
+                </th>
+
+                <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Name</h6>
+                </th>
+                <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Description</h6>
+                </th>
+                <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">ImageUrl</h6>
+                </th>
+                <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Action</h6>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="border-bottom-0">
+                        @item.Id
+                    </td>
+                    <td class="border-bottom-0">
+                        @item.Name
+                    </td>
+                    <td class="border-bottom-0">
+                        @item.Description
+                    </td>
+                    <td class="border-bottom-0">
+                        <img src="@item.ImageUrl" />
+                    </td>
+                    <td class="border-bottom-0">
+                        <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary m-1">Update</a>
+                        <a  asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger m-1">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
